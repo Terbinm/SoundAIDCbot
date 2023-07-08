@@ -1,0 +1,13 @@
+LICENSE
+README.md
+setup.py
+discord_downloader/__init__.py
+discord_downloader/config.py
+discord_downloader/downloader.py
+discord_downloader/parser.py
+discord_downloader/utils.py
+discord_downloader.egg-info/PKG-INFO
+discord_downloader.egg-info/SOURCES.txt
+discord_downloader.egg-info/dependency_links.txt
+discord_downloader.egg-info/requires.txt
+discord_downloader.egg-info/top_level.txt

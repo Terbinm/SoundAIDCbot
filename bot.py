@@ -14,7 +14,7 @@ from discord_downloader.utils import (
     none_or_list,
 )
 
-discord_API_Token = "MTEyNjc3MjgwNzAxMTkzMDEyNA.GxNtaS.GRK2AGr7uXduCJbSJnVoSXPMhI07sAd6JppV90"
+discord_API_Token = "AAA"
 discord_AI_Room = '1069634244873310352'
 
 
@@ -55,6 +55,7 @@ def run_discord_bot(
         # exclude_str=exclude_str,
 
 
+
     @client.event
     async def on_message(message):
         global AIconversation
@@ -88,7 +89,7 @@ def run_discord_bot(
                     if verbose:
                         print(f" > 已找到檔案: {a.filename}")
                     fname = (
-                        message.author.name.replace(" ", "_")
+                        message.author.name.replace(" ", "_") git config --global user.name "w
                         + "__"
                         + a.filename
                         if prepend_user
