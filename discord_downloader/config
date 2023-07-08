@@ -7,13 +7,13 @@
 [args]
 after=None
 before=None
-channels=None
+channels=檔案上傳
 dry_run=False
 exclude_str=None
 filetypes=None
 include_str=None
-num_messages=200
-output_dir=.
+num_messages=400
+output_dir=out/
 prepend_user=False
 server=None
 verbose=False

@@ -35,7 +35,7 @@ def main(
     See parser help strings for details
     """
 
-    download_dir = "discord_downloads_" + datetime.datetime.now().strftime("%Y%m%d")
+    download_dir = datetime.datetime.now().strftime("%Y%m%d")
     output_dir = os.path.join(output_dir, download_dir)
     os.makedirs(output_dir, exist_ok=True)
 
@@ -76,8 +76,8 @@ def main(
         for g in client.guilds:
             if g.name == server:
                 print(
-                    f"Connected to {g.name} as {client.user},"
-                    f" emissary of {app_info.owner.name}\n"
+                    f"已連接 {g.name} 使用 {client.user}機器人,"
+                    f"連結帳號:  {app_info.owner.name}\n"
                 )
 
                 text_channels = g.text_channels
@@ -86,8 +86,8 @@ def main(
                         count = 0
                         if before is None and after is None:
                             print(
-                                f"> Looking at last {num_str} messages"
-                                f" in {c.name}..."
+                                f"> 尋找倒數 {num_str} 則訊息"
+                                f" 在 {c.name} 頻道..."
                             )
                         elif before is not None and after is not None:
                             print(
@@ -109,6 +109,7 @@ def main(
                             limit=num_messages, after=after, before=before
                         ):
                             for a in m.attachments:
+                                # print(f" >> test ") #找到符合訊息
                                 if (
                                     (
                                         filetypes is None
@@ -123,7 +124,7 @@ def main(
                                     )
                                 ):
                                     if verbose:
-                                        print(f" > Found {a.filename}")
+                                        print(f" > 已找到檔案: {a.filename}")
                                     count += 1
                                     fname = (
                                         m.author.name.replace(" ", "_")
@@ -136,13 +137,13 @@ def main(
                                     if not dry_run:
                                         await a.save(fname)
 
-                        print(f" >> Found {count} files.")
+                        print(f" >> 共 {count} 筆檔案.")
                         total += count
 
         if dry_run:
             print(f"\n**** Dry run! 0 of {total} files saved!")
         else:
-            print(f"\n**** Saved {total} files to {output_dir}")
+            print(f"\n**** 已保存 {total} 筆檔案於 {output_dir} 中")
         await client.logout()  #
 
     @client.event
@@ -153,7 +154,7 @@ def main(
             shutil.make_archive(output_dir, "zip", output_dir)
             shutil.rmtree(output_dir)
 
-        print("\nGoodbye world, be excellent to eachother!")
+        print("\n執行完畢")
 
     client.run(token)
 
